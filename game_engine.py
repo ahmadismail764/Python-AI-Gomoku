@@ -65,7 +65,7 @@ class GameEngine:
         curr_player = self.player1
         while True:
             self.board.display()
-            move = curr_player.get_move()
+            move = curr_player.get_move(self.board)
             x, y = move
             if self.board.is_valid_move(x, y):
                 self.board.apply_move(x, y, curr_player.mark)
