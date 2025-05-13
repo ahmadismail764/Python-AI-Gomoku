@@ -17,7 +17,8 @@ class Board:
         return in_bound and free_cell
 
     def apply_move(self, x, y, mark):
-        self.grid[x][y] = mark
+        if self.is_valid_move(x, y):
+            self.grid[x][y] = mark
 
     def is_winner(self, mark):
         # Horizontal
