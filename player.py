@@ -1,4 +1,6 @@
 from board import Board
+
+
 class Player:
     def __init__(self, name: str, mark: str, is_ai: int = 0):
         self.name = name
@@ -15,9 +17,11 @@ class Player:
             # Minimax logic to choose a move
             # Import locally to avoid circular dependencies
             from minimax_ai import MinimaxAI
+
             ai_agent = MinimaxAI(self.name, self.mark)
             return ai_agent.get_move(game_state)
         else:
             from alphabeta_ai import AlphaBetaAI
+
             ai_agent = AlphaBetaAI(self.name, self.mark)
             return ai_agent.get_move(game_state)
