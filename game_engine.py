@@ -44,7 +44,7 @@ class GameEngine:
             )
             algo = input("Choose AI algorithm (1 for Minimax, 2 for Alpha-Beta): ")
             if algo == "1":
-                self.player2 = MinimaxAI(player2name, player2mark[0])
+                self.player2 = MinimaxAI(player2name, player2mark[0],player1mark[0])
             else:
                 self.player2 = AlphaBetaAI(player2name, player2mark[0])
         # AI vs AI case
@@ -71,9 +71,11 @@ class GameEngine:
                 self.board.apply_move(x, y, curr_player.mark)
                 print(f"{curr_player.name} placed {curr_player.mark} at ({x}, {y})")
             if self.board.is_winner(curr_player.mark):
+                self.board.display()
                 print(f"{curr_player.name} wins!")
                 break
             if self.board.draw():
+                self.board.display()
                 print("It's a draw!")
                 break
             curr_player = self.player2 if curr_player == self.player1 else self.player1
