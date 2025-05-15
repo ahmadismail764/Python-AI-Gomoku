@@ -1,3 +1,5 @@
+DIRECTIONS = [(0, 1), (1, 0), (1, 1), (1, -1)]
+
 class Board:
     def __init__(self, size=15):
         self.size = size
@@ -21,27 +23,19 @@ class Board:
             self.grid[x][y] = mark
 
     def is_winner(self, mark):
-        # Horizontal
         for r in range(self.size):
-            for c in range(self.size - 4):
-                if all(self.grid[r][c + i] == mark for i in range(5)):
-                    return True
-        # Vertical
-        for r in range(self.size - 4):
             for c in range(self.size):
-                if all(self.grid[r + i][c] == mark for i in range(5)):
-                    return True
-        # Diagonal bottom-left to top-right
-        for r in range(self.size - 4):
-            for c in range(self.size - 4):
-                if all(self.grid[r + i][c + i] == mark for i in range(5)):
-                    return True
-        # Diagonal top-left to bottom-right
-        for r in range(self.size - 4):
-            for c in range(4, self.size):
-                if all(self.grid[r + i][c - i] == mark for i in range(5)):
-                    return True
-        return False
+                for dr, dc in DIRECTIONS:
+                    coords = []
+                    for k in range(5):
+                        nr, nc = r + dr * k, c + dc * k
+                        if 0 <= nr < self.size and 0 <= nc < self.size and self.grid[nr][nc] == mark:
+                            coords.append((nr, nc))
+                        else:
+                            break
+                    if len(coords) == 5:
+                        return coords
+        return None
 
     def draw(self):
         for row in self.grid:
