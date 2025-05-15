@@ -3,11 +3,10 @@ from board import Board
 DIRECTIONS = [(0, 1), (1, 0), (1, 1), (1, -1)]
 
 class AlphaBetaAI(Player):
-    def __init__(self, name: str, mark: str, opponent_mark: str, max_depth: int = 3, move_limit: int = 10):
+    def __init__(self, name: str, mark: str, opponent_mark: str, max_depth: int = 3):
         super().__init__(name, mark)
         self.opponent_mark = opponent_mark
         self.max_depth = max_depth
-        self.move_limit = move_limit
 
     def get_move(self, game_state: Board):
         print('AI is thinking...')
