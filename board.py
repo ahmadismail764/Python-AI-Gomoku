@@ -43,13 +43,6 @@ class Board:
                 return False
         return True
 
-    def getAvailableMoves(self):
-        available_moves = []
-        for i in range(self.size):
-            for j in range(self.size):
-                if self.grid[i][j] == ".":
-                    available_moves.append((i, j))
-        return available_moves
 
     def reset(self):
         self.grid = [["." for _ in range(self.size)] for _ in range(self.size)]
