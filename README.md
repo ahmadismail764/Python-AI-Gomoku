@@ -1,4 +1,4 @@
-# Gomoku (Five in a Row) ♟️
+# Gomoku (Five in a Row) 🧩
 
 A modern, feature-rich Python implementation of the classic Gomoku game (Five in a Row), offering both a sleek GUI and console mode. Play against friends or challenge advanced AI opponents powered by Minimax and Alpha-Beta algorithms! 🧠
 
@@ -67,6 +67,7 @@ python main.py
 - `player.py` — Player classes
 - `minimax_ai.py` — Minimax AI logic
 - `alphabeta_ai.py` — Alpha-Beta AI logic
+- `ai_utils.py` — Shared AI evaluation logic
 
 ---
 
