@@ -71,6 +71,44 @@ python main.py
 
 ---
 
+## 🗂️ Class Overview
+
+Below is a simple text-based class overview for the main components of this project:
+
+```
+Board
+ ├─ display()
+ ├─ is_valid_move(x, y)
+ ├─ apply_move(x, y, mark)
+ ├─ undo_move(x, y)
+ ├─ is_winner(mark)
+ ├─ draw()
+ └─ reset()
+
+Player
+ ├─ name
+ ├─ mark
+ └─ get_move(game_state)
+
+GomokuAIEvalMixin
+ ├─ is_win(board, mark)
+ ├─ count_open_seq(board, mark, length)
+ └─ evaluate(board)
+
+MinimaxAI (inherits Player, GomokuAIEvalMixin)
+ ├─ get_move(game_state)
+ └─ get_best_valid_moves(board)
+
+AlphaBetaAI (inherits Player, GomokuAIEvalMixin)
+ ├─ get_move(game_state)
+ └─ get_best_valid_moves(board)
+```
+
+- `MinimaxAI` and `AlphaBetaAI` both inherit from `Player` and mix in shared AI logic from `GomokuAIEvalMixin`.
+- All classes interact with the `Board` for game state and moves.
+
+---
+
 ## ⚡ Quickstart
 
 1. **Clone the repo:**
