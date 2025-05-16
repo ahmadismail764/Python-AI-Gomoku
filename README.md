@@ -75,7 +75,7 @@ python main.py
 
 Below is a simple text-based class overview for the main components of this project:
 
-```
+``` file_tree
 Board
  ├─ display()
  ├─ is_valid_move(x, y)
